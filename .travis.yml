@@ -1,0 +1,12 @@
+language: java
+sudo: false # faster builds
+script: 
+   - "cd text-analyzer-service" 
+   - "mvn clean install"
+
+after_success:
+   - chmod 600 .travis/deploy_key.pem # this key should have push access
+   - ssh-add .travis/deploy_key.pem
+   - git remote add deploy https://github.com/mrisney/unity-text-example
+   - git push deploy
+   - bash <(curl -s https://codecov.io/bash)

@@ -1,0 +1,10 @@
+version: '2'
+services:
+
+  text-analyze-service:
+    image: java:alpine
+    ports:
+      - "8888:8888"
+    volumes:
+      - $DIR/../text-analyzer-service/target/text-analyzer-1.0.jar:/var/app.jar:z
+    command: java -jar /var/app.jar
