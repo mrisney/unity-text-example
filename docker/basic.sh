@@ -8,4 +8,4 @@ export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Stop
 docker-compose -f $DIR/docker-compose.yml stop
 
-docker-compose -f $DIR/docker-compose.yml up -d vehicle-service customer-service rental-service
+docker-compose -f $DIR/docker-compose.yml up -d text-analyzer-service
